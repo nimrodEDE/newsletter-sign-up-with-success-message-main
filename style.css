@@ -1,0 +1,217 @@
+:root {
+  --Tomato: hsl(4, 100%, 67%);
+
+  --Dark-Slate-Grey: hsl(234, 29%, 20%);
+  --Charcoal-Grey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-color: var(--Charcoal-Grey);
+  font-family: "Roboto", sans-serif;
+}
+
+/* container */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: min(100%, 48.125rem);
+  margin: 1rem 0;
+  margin-inline: auto;
+  padding: 2rem;
+  background-color: var(--White);
+  border-radius: 1rem;
+  font-size: 0.9rem;
+}
+
+.left-container,
+.right-container {
+  max-width: 50%;
+}
+
+#desktop {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+#mobile {
+  display: none;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0.5rem 2rem 2rem 0rem;
+}
+
+.left-container h1 {
+  font-size: 2.8em;
+}
+
+.desc {
+  margin: 1rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 0.3rem 0;
+}
+
+ul li > * {
+  display: inline;
+  vertical-align: middle;
+}
+
+ul li p {
+  margin-left: 0.5rem;
+}
+
+fieldset {
+  margin-top: 2rem;
+  border: none;
+}
+
+legend {
+  font-size: 0.8rem;
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+legend > * {
+  display: inline;
+}
+
+.error {
+  display: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.4rem;
+}
+
+input:first-child {
+  margin: 0.5rem 0 1rem 0;
+  border: var(--Grey) 1px solid;
+  padding: 1rem;
+}
+
+input[type="submit"] {
+  background-color: var(--Dark-Slate-Grey);
+  color: var(--White);
+  font-weight: bold;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  color: var(--Dark-Slate-Grey);
+  background-color: var(--White);
+}
+
+/* if email is bad then */
+
+/* input[type="email"] {
+  color: var(--Tomato);
+  border: var(--Tomato) 1px solid;
+  background-color: hsla(4, 100%, 67%, 0.178);
+} */
+
+.error {
+  display: inline;
+}
+
+input.custom-placeholder::placeholder,
+.error {
+  color: var(--Tomato);
+}
+
+/* success */
+
+.success {
+  background-color: var(--White);
+  max-width: min(100%, 20rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  border-radius: 1.5rem;
+}
+
+.success img {
+  display: block;
+  width: 15%;
+}
+
+.success p {
+  font-size: 0.7rem;
+}
+
+.success button {
+  height: 2.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: var(--White);
+  background-color: var(--Charcoal-Grey);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+
+  .container > * {
+    max-width: 100%;
+  }
+
+  .right-container {
+    height: 30vh; /* Set the container height explicitly */
+    max-height: 100vh;
+    display: flex; /* Use flex to center the image within */
+    justify-content: center;
+    align-items: center;
+  }
+
+  #mobile {
+    display: block;
+    object-fit: cover; /* Maintain the aspect ratio of the image */
+    height: 100%; /* Take full height of the container */
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  #desktop {
+    display: none;
+  }
+
+  .left-container {
+    padding: 1rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
