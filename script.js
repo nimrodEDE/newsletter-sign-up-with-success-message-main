@@ -4,13 +4,14 @@ const form = document.getElementById("form");
 const emailInput = document.getElementById("email");
 const dismiss = document.getElementById("dismiss");
 const insertEmail = document.getElementById("insertEmail");
+const errMsg = document.getElementById("errMsg");
 
 function callError() {
-  const errMsg = document.getElementById("errMsg");
   emailInput.classList.add("custom-placeholder");
   emailInput.style.border = "var(--Tomato) 1px solid";
   emailInput.style.backgroundColor = "hsla(4, 100%, 67%, 0.178)";
   errMsg.classList.add("error");
+  errMsg.classList.remove("hidden");
 }
 
 function handleSubmit(e) {
@@ -24,6 +25,12 @@ function handleSubmit(e) {
     insertEmail.innerHTML = email;
     container.classList.toggle("hidden");
     success.classList.toggle("hidden");
+    // returning to starting point
+    errMsg.classList.remove("error");
+    emailInput.classList.remove("custom-placeholder");
+    emailInput.style.border = "var(--Dark-Slate-Grey) 1px solid";
+    emailInput.style.backgroundColor = "#fff";
+    errMsg.classList.add("hidden");
   }
 }
 
